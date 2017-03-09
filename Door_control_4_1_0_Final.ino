@@ -42,7 +42,7 @@
 // MAC address from Ethernet shield sticker under board
 byte mac[] = {
   0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; // should be changed to something else
-IPAddress ip(10, 16, 246, 211); // IP address, may need to change depending on network
+IPAddress ip(xxx,xxx, xxx, 211); // IP address, may need to change depending on network
 EthernetServer server(80);  // create a server at port 80
 File webFile;               // the web page file on the SD card
 char HTTP_req[REQ_BUF_SZ] = {
@@ -60,7 +60,7 @@ void setup()
   digitalWrite(10, HIGH);
 
   Serial.begin(9600);       // for debugging
-  //Serial.println(F("Ip Address is 10.16.246.11"));
+  //Serial.println(F("Ip Address is xxx.xxx.xxx.11"));
   // initialize SD card
      if (!SD.begin(4)) {
     Serial.println(F("ERROR - SD init failed!"));
