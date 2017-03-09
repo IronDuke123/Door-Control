@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- Trying for standalone page that can be stored in my phone..included backdoor code to bypass ip auth -->
+<html>
+    <head>
+        <title>Garage Door Control</title>
+        <script>
+		
+		doorCMD = "";
+		function GetArduinoIO()
+		{
+			
+			var request = new XMLHttpRequest();
+			// send HTTP GET request to control doors as needed
+			request.open("GET", "http://xxx.xxx.xxx.xxx/?ajax_inputs&backdoor" + doorCMD , true);
+			request.send(null);
+			doorCMD = "";
+			
+			
+		}
+		       function Open1() //these functions simply set doorCMD to match the commanded needed
+		{
+			  doorCMD = "&d1=1"; // and then send the information in am http GET command
+				GetArduinoIO()
+		}
+		       function Stop1() // Open = 1  // Stop = 2 // Close = 3
+		{
+			  doorCMD = "&d1=2";
+				GetArduinoIO()
+		}
+		      function Close1()
+		{
+			  doorCMD = "&d1=3";
+				GetArduinoIO()
+		}
+		       function Open2()
+		{
+			  doorCMD = "&d2=1";
+				GetArduinoIO()			  
+		}
+		       function Stop2()
+		{
+			  doorCMD = "&d2=2";
+				GetArduinoIO()
+		}
+		      function Close2()
+		{
+			  doorCMD = "&d2=3";
+				GetArduinoIO()
+		}
+		       function Open3()
+		{
+			  doorCMD = "&d3=1";
+				GetArduinoIO()			  
+		}
+		        function Stop3()
+		{
+			  doorCMD = "&d3=2";
+				GetArduinoIO()
+		}
+		       function Close3()
+		{
+			  doorCMD = "&d3=3";
+				GetArduinoIO()
+		}
+		
+	</script>
+	<style>
+		.IO_box {
+			float: left;
+			margin: 0 10px 10px 0;
+			border: 1px solid blue;
+			padding: 0 5px 0 5px;
+			width: 290px;
+		}
+		h1 {
+			font-size: 400%;
+			color: blue;
+			margin: 0 0 5px 0;
+		}
+		h2 {
+			font-size: 400%;
+			color: #5734E6;
+			margin: 5px 0 5px 0;
+		}
+		p, form, button {
+			font-size: 400%;
+			color: #252525;
+		}
+		
+	</style>
+    </head>
+    <body onload="GetArduinoIO()">
+        <h1>Garage Door Control</h1>
+        <div class="IO_box">
+			<h2>Door #1</h2>
+                <button type="button" id="OPEN1" onclick="Open1()">Open</button><br /><br />
+		        <button type="button" id="STOP1" onclick="Stop1()">Stop</button><br /><br />
+		        <button type="button" id="CLOSE1" onclick="Close1()">Close</button><br /><br />
+			
+		</div>
+		<div class="IO_box">
+			<h2>Door #2</h2>
+		    	<button type="button" id="OPEN2" onclick="Open2()">Open</button><br /><br />
+		        <button type="button" id="STOP2" onclick="Stop2()">Stop</button><br /><br />
+		        <button type="button" id="CLOSE2" onclick="Close2()">Close</button><br /><br />
+		</div>
+		<div class="IO_box">
+			<h2>Door #3</h2>
+		    	<button type="button" id="OPEN3" onclick="Open3()">Open</button><br /><br />
+		        <button type="button" id="STOP3" onclick="Stop3()">Stop</button><br /><br />
+		        <button type="button" id="CLOSE3" onclick="Close3()">Close</button><br /><br />
+		</div>
+		
+    </body>
+</html>
